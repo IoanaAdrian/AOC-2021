@@ -8,9 +8,10 @@ int solution(std::vector<int>::iterator current, std::vector<int>::iterator firs
             q.push(*current);
             return solution(current - 1, first, q, maxQ);
         } else {
-            int firstSum,secondSum;
+            int firstSum, secondSum;
             firstSum = aoc::sumQ(q);
-            q.pop();q.push(*current);
+            q.pop();
+            q.push(*current);
             secondSum = aoc::sumQ(q);
             return solution(current - 1, first, q, maxQ) + (secondSum < firstSum ? 1 : 0);
         }
@@ -26,8 +27,9 @@ int main() {
     std::vector<int> v = reader.readAs<int>();
 
     std::queue<int> q;
-    if (!v.empty())
-        std::cout << solution(v.end() - 1, v.begin(), q, 3);
-
+    if (!v.empty()) {
+        std::cout << solution(v.end() - 1, v.begin(), q, 1); // answer to the first question
+        std::cout << solution(v.end() - 1, v.begin(), q, 3); // answer to the second question
+    }
     return 0;
 }

@@ -4,9 +4,12 @@
 
 #ifndef C___FILEREADER_H
 #define C___FILEREADER_H
+
 #include <fstream>
 #include <vector>
-namespace aoc{
+#include <string>
+
+namespace aoc {
     class fileReader {
     public:
         explicit fileReader(::std::ifstream &inputStream) {
@@ -18,6 +21,15 @@ namespace aoc{
             T tmp = 0;
             ::std::vector<T> result;
             while (*_inputStream >> tmp) {
+                result.push_back(tmp);
+            }
+            return result;
+        }
+
+        std::vector<std::string> readLines() {
+            std::string tmp;
+            std::vector<std::string> result;
+            while (getline(*_inputStream, tmp)) {
                 result.push_back(tmp);
             }
             return result;
