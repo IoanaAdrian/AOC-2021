@@ -35,6 +35,23 @@ namespace aoc {
             return result;
         }
 
+        std::vector<int> readNumbers(std::string line, char separator) {
+            std::string number = "";
+            std::vector<int> result;
+            for (auto letter:line) {
+                if (letter != separator) {
+                    number += letter;
+                } else if(number!=""){
+                    result.push_back(std::atoi(number.c_str()));
+                    number = "";
+                }
+            }
+            if(number!=""){
+                result.push_back(std::atoi(number.c_str()));
+            }
+            return result;
+        }
+
     private:
         std::ifstream *_inputStream;
     };
