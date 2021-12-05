@@ -13,7 +13,7 @@ int main() {
     aoc::fileReader reader(f);
 
     std::vector<std::string> lines = reader.readLines();
-    std::vector<int> withdrawnNumbers = reader.readNumbers(*lines.begin(), ',');
+    std::vector<int> withdrawnNumbers = reader.readNumbers(*lines.begin(), ",");
 
     freq = (int *) (malloc(sizeof(int) * 500));
 
@@ -23,7 +23,7 @@ int main() {
         currentLine++;
         std::vector<std::vector<int>> matrix;
         for (int i = 1; i <= 5; i++) {
-            std::vector<int> lineNumbers = reader.readNumbers(*currentLine, ' ');
+            std::vector<int> lineNumbers = reader.readNumbers(*currentLine, " ");
             matrix.push_back(lineNumbers);
             currentLine++;
         }
